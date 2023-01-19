@@ -1,4 +1,4 @@
-# Application for Natural Language Processing of the user supplied text or url using the MeaningCloud - Sentiment Analysis API
+# Application for Travel planning - will recieve weather data for specified area and date.
 
 --Install Package - NPM install
 \
@@ -13,8 +13,7 @@ Technology used : \
 Node v18.13.0 \
 Express \
 Webpack with babel, html, and Sass loaders \
-Service workers \
-And learning very basic unit testing with Jest 
+
 
 
 
