@@ -1,7 +1,7 @@
 {
   "name": "weather-travel-plans",
   "version": "1.0.0",
-  "description": "Website that will allow users to run Natural Language Processing on other articles",
+  "description": "Website Application for getting the weather for Travel planning",
   "main": "index.js",
   "scripts": {
     "test": "jest",
