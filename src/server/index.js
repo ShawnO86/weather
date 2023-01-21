@@ -5,7 +5,7 @@ var cors = require('cors');
 const dotenv = require('dotenv');
 //to use fetch in node
 const fetch = (...args) =>
-	import('node-fetch').then(({default: fetch}) => fetch(...args));
+  import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const app = express();
 
@@ -26,20 +26,28 @@ app.use(express.static('dist'));
 let projectData = {};
 
 app.get('/', function (req, res) {
-    res.sendFile('dist/index.html');
+  res.sendFile('dist/index.html');
 });
 
 app.listen(3001, function () {
-    console.log('App listening on port 3001!');
+  console.log('App listening on port 3001!');
 });
 
-app.get('/geoData', async (req, res) => {
-  let geoData = await fetch(`http://api.geonames.org/searchJSON?q=paris&maxRows=1&username=${geoKey}`);
+app.get('/geoData/:city', async (req, res) => {
+  const city = req.params.city;
+  let geoData = await fetch(`http://api.geonames.org/searchJSON?q=${city}&maxRows=1&fuzzy=0.8&username=${geoKey}`);
   try {
     const data = await geoData.json();
-    const usefulData = {long: data.geonames[0].lng, lat: data.geonames[0].lat, country: data.geonames[0].countryName}
+    const usefulData = {
+      long: data.geonames[0].lng,
+      lat: data.geonames[0].lat,
+      country: data.geonames[0].countryName,
+      local: data.geonames[0].adminName1,
+      name: data.geonames[0].toponymName
+    }
+    console.log(data)
     res.send(usefulData)
-  } catch(e) {
+  } catch (e) {
     console.log(e);
     res.send("error", e);
   }
