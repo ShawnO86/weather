@@ -34,21 +34,29 @@ app.listen(3001, function () {
 });
 
 app.get('/geoData/:city', async (req, res) => {
+  await getGeoData(req, res);
+  try {
+    res.send(projectData);
+  } catch (e) {
+    console.log("error", e);
+  }
+});
+
+const getGeoData = async (req, res) => {
   const city = req.params.city;
   let geoData = await fetch(`http://api.geonames.org/searchJSON?q=${city}&maxRows=1&fuzzy=0.8&username=${geoKey}`);
   try {
     const data = await geoData.json();
-    const usefulData = {
+    projectData = {
       long: data.geonames[0].lng,
       lat: data.geonames[0].lat,
       country: data.geonames[0].countryName,
       local: data.geonames[0].adminName1,
       name: data.geonames[0].toponymName
-    }
-    console.log(data)
-    res.send(usefulData)
+    };
+    console.log(data);
   } catch (e) {
     console.log(e);
     res.send("error", e);
   }
-})
+}
