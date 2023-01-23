@@ -12,24 +12,41 @@
 
     <main>
         <header>
-            <h1>Plan your trip based on current and future weather data</h1>
+            <div id="headTxt">
+                <h1>Planning a trip?</h1>
+            </div>
+            <div id="heroImg"></div>
         </header>
 
-        <section>
-            <button id="sub">sub</button>
+        <section id="formSection">
+
+            <form>
+                <div id="formInputs">
+                    <h2>Get current and future weather forcasts for your destination.</h2>
+                    <label for="cityName">Destination:</label>
+                    <input type="text" id="cityName" name="cityName"
+                        placeholder="(country, region, city, or zipcode)">
+                    <label for="destDate">Date:</label>
+                    <input type="date" id="destDate" name="destDate" placeholder="mm/dd/yyyy">
+                    <input type="submit" id="sub" value="Get weather">
+                </div>
+            </form>
+        </section>
+
+        <section id="output">
 
         </section>
 
     </main>
 
     <script>
-/*         // Check that service workers are supported
-        if ('serviceWorker' in navigator) {
-            // Use the window load event to keep the page load performant
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js');
-            });
-        } */
+        /*         // Check that service workers are supported
+                if ('serviceWorker' in navigator) {
+                    // Use the window load event to keep the page load performant
+                    window.addEventListener('load', () => {
+                        navigator.serviceWorker.register('/service-worker.js');
+                    });
+                } */
     </script>
 </body>
 
