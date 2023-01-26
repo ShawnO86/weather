@@ -18,8 +18,6 @@ app.use(bodyParser.urlencoded({
 }));
 
 dotenv.config();
-const geoKey = process.env.geonames_key;
-//API_KEY must be defined in project root within .env file!
 
 app.use(express.static('dist'));
 
@@ -33,7 +31,10 @@ app.listen(3001, function () {
   console.log('App listening on port 3001!');
 });
 
-app.get('/geoData/:city', async (req, res) => {
+const geoKey = process.env.geonames_key;
+const weatherBitKey = process.env.weatherbit_key;
+//API_KEYS must be defined in project root within .env file!
+app.get('/data/:city', async (req, res) => {
   await getGeoData(req, res);
   try {
     res.send(projectData);
@@ -54,9 +55,20 @@ const getGeoData = async (req, res) => {
       local: data.geonames[0].adminName1,
       name: data.geonames[0].toponymName
     };
-    console.log(data);
+    console.log("geo data:", data);
+    await getWeatherData(projectData.lat, projectData.long)
   } catch (e) {
     console.log(e);
-    res.send("error", e);
+  }
+}
+
+const getWeatherData = async (lat, long) => {
+  let weatherData = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&key=${weatherBitKey}`);
+  try {
+    const data = await weatherData.json();
+    projectData.highTemp = data.data[0].high_temp;
+    console.log("weather data:", data);
+  } catch (e) {
+    console.log("error:", e);
   }
 }
