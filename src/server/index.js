@@ -56,18 +56,33 @@ const getGeoData = async (req, res) => {
       name: data.geonames[0].toponymName
     };
     console.log("geo data:", data);
-    await getWeatherData(projectData.lat, projectData.long)
+    await getForcastArr(projectData.lat, projectData.long)
   } catch (e) {
     console.log(e);
   }
 }
 
-const getWeatherData = async (lat, long) => {
-  let weatherData = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&key=${weatherBitKey}`);
+const getForcastArr = async (lat, long) => {
+  let weatherData = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&units=I&key=${weatherBitKey}`);
   try {
-    const data = await weatherData.json();
-    projectData.highTemp = data.data[0].high_temp;
-    console.log("weather data:", data);
+    const wData = await weatherData.json();
+    let forcast = [];
+    wData.data.forEach(element => {
+      forcast.push({
+        date: element.datetime,
+        high_temp: element.high_temp,
+        low_temp: element.low_temp,
+        humidity: element.rh + "%",
+        wind_speed: element.wind_spd + "MPH",
+        wind_gusts: element.wind_gust_spd + "MPH",
+        precipitation: element.pop,
+        rainAmt: element.precip,
+        snowAmt: element.snow,
+        iconDesc: {icon: "https://www.weatherbit.io/static/img/icons/" + element.weather.icon + ".png", description: element.weather.description}
+      })
+    });
+    console.log(forcast);
+    projectData.forcast = forcast;
   } catch (e) {
     console.log("error:", e);
   }

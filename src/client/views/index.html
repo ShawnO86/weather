@@ -22,7 +22,7 @@
 
             <form>
                 <div id="formInputs">
-                    <h2>Get current and future weather forcasts for your destination.</h2>
+                    <h2>Get current and 7 day future weather forcasts for your destination.</h2>
                     <label for="cityName">Destination:</label>
                     <input type="text" id="cityName" name="cityName"
                         placeholder="(country, region, city, or zipcode)">
@@ -31,10 +31,12 @@
                     <input type="submit" id="sub" value="Get weather">
                 </div>
             </form>
-        </section>
+      
+        </section>      
 
-        <section id="output">
-
+        <section id="outputSection">
+            <div id="countDown"></div>
+            <div id="weatherOutput"></div>
         </section>
 
     </main>

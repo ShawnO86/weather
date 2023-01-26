@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "start": "node src/server/index.js",
-    "serve": "webpack-dev-server --config webpack.dev.js --open",
+    "dev": "webpack-dev-server --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js"
   },
   "author": "Shawn Osborne",
