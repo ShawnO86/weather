@@ -55,7 +55,7 @@ const getGeoData = async (req, res) => {
       local: data.geonames[0].adminName1,
       name: data.geonames[0].toponymName
     };
-    console.log("geo data:", data);
+    //console.log("geo data:", data);
     await getForcastArr(projectData.lat, projectData.long)
   } catch (e) {
     console.log(e);
@@ -63,11 +63,95 @@ const getGeoData = async (req, res) => {
 }
 
 const getForcastArr = async (lat, long) => {
-  let weatherData = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&units=I&key=${weatherBitKey}`);
+  //let weatherData = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&units=I&key=${weatherBitKey}`);
   try {
-    const wData = await weatherData.json();
+    //const wData = await weatherData.json();
     let forcast = [];
-    wData.data.forEach(element => {
+    //dummy data so I dont run out of api calls
+    forcast = [{
+      date: '2023 / 01 / 23',
+      high_temp: 40,
+      low_temp: 10,
+      humidity: 80 + '%',
+      wind_speed: 15 + 'MPH',
+      wind_gusts: 35 + 'MPH',
+      precipitation: 10,
+      rainAmt: 22,
+      snowAmt: 6,
+      iconDesc: { icon: "https://www.weatherbit.io/static/img/icons/d01d.png", description: "light rain" }
+    },
+    {
+      date: '2023 / 01 / 24',
+      high_temp: 40,
+      low_temp: 10,
+      humidity: 80 + '%',
+      wind_speed: 15 + 'MPH',
+      wind_gusts: 35 + 'MPH',
+      precipitation: 10,
+      rainAmt: 22,
+      snowAmt: 6,
+      iconDesc: { icon: "https://www.weatherbit.io/static/img/icons/d01d.png", description: "light rain" }
+    },
+    {
+      date: '2023 / 01 / 24',
+      high_temp: 40,
+      low_temp: 10,
+      humidity: 80 + '%',
+      wind_speed: 15 + 'MPH',
+      wind_gusts: 35 + 'MPH',
+      precipitation: 10,
+      rainAmt: 22,
+      snowAmt: 6,
+      iconDesc: { icon: "https://www.weatherbit.io/static/img/icons/d01d.png", description: "light rain" }
+    },
+    {
+      date: '2023 / 01 / 24',
+      high_temp: 40,
+      low_temp: 10,
+      humidity: 80 + '%',
+      wind_speed: 15 + 'MPH',
+      wind_gusts: 35 + 'MPH',
+      precipitation: 10,
+      rainAmt: 22,
+      snowAmt: 6,
+      iconDesc: { icon: "https://www.weatherbit.io/static/img/icons/d01d.png", description: "light rain" }
+    },
+    {
+      date: '2023 / 01 / 24',
+      high_temp: 40,
+      low_temp: 10,
+      humidity: 80 + '%',
+      wind_speed: 15 + 'MPH',
+      wind_gusts: 35 + 'MPH',
+      precipitation: 10,
+      rainAmt: 22,
+      snowAmt: 6,
+      iconDesc: { icon: "https://www.weatherbit.io/static/img/icons/d01d.png", description: "light rain" }
+    },
+    {
+      date: '2023 / 01 / 24',
+      high_temp: 40,
+      low_temp: 10,
+      humidity: 80 + '%',
+      wind_speed: 15 + 'MPH',
+      wind_gusts: 35 + 'MPH',
+      precipitation: 10,
+      rainAmt: 22,
+      snowAmt: 6,
+      iconDesc: { icon: "https://www.weatherbit.io/static/img/icons/d01d.png", description: "light rain" }
+    }, {
+      date: '2023 / 01 / 24',
+      high_temp: 40,
+      low_temp: 10,
+      humidity: 80 + '%',
+      wind_speed: 15 + 'MPH',
+      wind_gusts: 35 + 'MPH',
+      precipitation: 10,
+      rainAmt: 22,
+      snowAmt: 6,
+      iconDesc: { icon: "https://www.weatherbit.io/static/img/icons/d01d.png", description: "light rain" }
+    }];
+    /* wData.data.forEach(element => {
       forcast.push({
         date: element.datetime,
         high_temp: element.high_temp,
@@ -80,7 +164,7 @@ const getForcastArr = async (lat, long) => {
         snowAmt: element.snow,
         iconDesc: {icon: "https://www.weatherbit.io/static/img/icons/" + element.weather.icon + ".png", description: element.weather.description}
       })
-    });
+    });  */
     console.log(forcast);
     projectData.forcast = forcast;
   } catch (e) {

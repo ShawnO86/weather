@@ -10,17 +10,7 @@ main {
     grid-template-rows: 1fr auto;
     grid-template-areas: 
     "head"
-    "main"
     "detail";
-}
-
-header {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    height: 3rem;
-    padding: 0 0 1rem;
-    grid-area: head;
 }
 
 section {
@@ -30,28 +20,27 @@ section {
 
 #formSection {
     display: flex;
-    justify-content: right;
+    flex-direction: column;
+    align-items: center;
     margin: 0 auto;
+    height: 100vh;
     width: 100%;
     background-image: url('./resimg.jpg');
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 3rem 3rem 30vh 3rem;
+    padding: 3rem 3rem 40% 3rem;
     box-sizing: border-box;
-    grid-area: main;
+    grid-area: head;
     form {
         padding: 3rem 0;
-        width: clamp(20rem, 35vw, 50rem);
+        width: clamp(20rem, 35vw, 40rem);
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         border-radius: 1rem;
-        background-color:  rgba(252, 252, 252, 0.85);
-        h2 {
-            text-align: center;
-            margin: 0 0 1rem 0;
-        }
+        background-color:  rgba(252, 252, 252, 0.75);
+        margin: 0 2rem 0 0;
     }
     #formInputs {
         width: 80%;
@@ -68,28 +57,42 @@ section {
         margin-top: 2rem;
         cursor: pointer;
        }
-    }  
+    } 
+    #formInfo {
+        width: clamp(20rem, 45vw, 60rem);
+        color:  rgba(252, 252, 252, 1);
+        h1 {
+            margin: 0 2rem 1rem 0;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+    } 
 }
 
 #outputSection {
     background-color:  rgb(149, 173, 196);
+    min-height: 10rem;
+    text-align: center;
    #weatherOutput {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     justify-items: center;
     padding: 2rem;
     margin: 0;
-    gap: 1rem;
+    gap: 1rem 2rem;
     grid-area: detail;
     .weatherCard {
-        width: 15rem;
-        text-align: center;
+        width: clamp(15rem, 30vw, 20rem);
         background-color:  rgba(252, 252, 252, 1);
         box-shadow: 1px 1px 3px 0 rgba(20, 20, 20, 0.5);
         border-radius: 0.5rem;
         padding: 0.5rem;
     }
 } 
+}
+
+.hideSection {
+    display: none;
 }
 
 
