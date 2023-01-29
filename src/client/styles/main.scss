@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', 'Segoe UI', Verdana, sans-serif;
 }
 
 main {
@@ -85,41 +88,69 @@ section {
     background-color: rgb(149, 173, 196);
     min-height: 10rem;
     text-align: center;
+
     #outputHeader {
         padding-top: 2rem;
     }
+
     #countDown {
         padding-bottom: 2rem;
+        font-size: 1rem;
     }
+
     #forcastHead {
         padding-top: 2rem;
     }
+
+    #destInfo {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+        gap: 2rem;
+        padding: 4rem 0;
+        background-color: #333;
+        #destTxt {
+            font-size: x-large;
+            min-width: 20rem;
+            color: rgba(252, 252, 252, 1);
+        }
+
+        #destPic {
+            img {
+                display: block;
+                margin: 0 auto;
+                border-radius: 1rem;
+                width: clamp(21rem, 35vw, 35rem);
+            }
+        }
+    }
+
     #pixaBayRef {
         display: flex;
         justify-content: right;
         align-items: center;
         text-align: left;
         gap: 2rem;
-        max-width: fit-content;
-        position: relative;
-        left: 50%;
 
         #pixaBayLogo {
             content: url('../views/img/pixabayLogo.png');
-            width: 20%;
+            min-width: 10rem;
+            width: 15%;
         }
     }
 
     #weatherOutput {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
         justify-items: center;
-        padding: 2rem;
+        padding: 4rem 1rem;
         margin: 0;
-        gap: 1rem 2rem;
+        gap: 1rem;
 
         .weatherCard {
-            width: clamp(15rem, 30vw, 20rem);
+            width: clamp(20rem, 30vw, 25rem);
             background-color: rgba(252, 252, 252, 1);
             box-shadow: 1px 1px 3px 0 rgba(20, 20, 20, 0.5);
             border-radius: 0.5rem;
@@ -127,15 +158,6 @@ section {
         }
     }
 }
-
-footer {
-    display: flex;
-    justify-content: center;
-    padding-top: 3rem;
-
-
-}
-
 
 .hideSection {
     display: none;

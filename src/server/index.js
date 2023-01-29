@@ -39,7 +39,7 @@ const pixaBayKey = process.env.pixabay_key;
 app.get('/data/:city', async (req, res) => {
   await getGeoData(req, res);
   try {
-    console.log(projectData);
+    //console.log(projectData);
     res.send(projectData);
   } catch (e) {
     console.log("error", e);
@@ -176,12 +176,25 @@ const getForcastArr = async (lat, long) => {
 }
 
 const getPic = async (local, country) => {
-  //let picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${local +"+"+ country}`);
+  let picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${local +"+"+ country}`);
   try {
-    //let data = await picData.json();
-    //console.log("picture data: ", data.hits[0].webformatURL);
-    projectData.picture = 'https://pixabay.com/get/gfe94ebc07c35911f7b11a9a1a1560f04aec859a78162b4da407752ea0d2943e037574de269906faafa36e7ac7254c4f9_640.jpg';
-    //projectData.picture = data.hits[0].webformatURL;
+    let data = await picData.json();
+    console.log("picture data: ", data);
+    //projectData.picture = 'https://pixabay.com/get/gfe94ebc07c35911f7b11a9a1a1560f04aec859a78162b4da407752ea0d2943e037574de269906faafa36e7ac7254c4f9_640.jpg';
+    if(data.total == 0) {
+      console.log("No image for local: using country instead");
+      picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${local='' + country}`)
+      try {
+        data = await picData.json();
+        projectData.picture = data.hits[0].webformatURL;
+      } catch (e) {
+        console.log("Nested pic fetch error", e);
+      }
+    } else {
+      console.log("local image found");
+      projectData.picture = data.hits[0].webformatURL;
+    }
+
   } catch (e) {
     console.log("error", e);
   }

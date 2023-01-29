@@ -5,11 +5,11 @@ async function tripData() {
     const city = document.getElementById('cityName').value;    
     const tripDate = document.getElementById('destDate').value;
     const output = document.getElementById('weatherOutput');
-    const outputHead = document.getElementById('outputHeader');
+    const outputHead = document.getElementById('destTxt');
     const forcastHead = document.getElementById('forcastHead');
-    const timeOutput = document.getElementById('countDown');
     const outputSection = document.getElementById('outputSection');
-    const picSection = document.getElementById('picInfo');
+    const picSection = document.getElementById('destPic');
+    const timeOutput = document.createElement('div');
     outputSection.classList.remove('hideSection');
 
     if (!city || !tripDate) {
@@ -19,7 +19,7 @@ async function tripData() {
             outputSection.classList.remove('hideSection');
             output.innerHTML = '';
             const data = await getData(`http://localhost:3001/data/${city}`);
-            outputHead.innerHTML = `Destination: ${data.name}, ${data.local}:`;
+            outputHead.innerHTML = `<strong>Destination: ${data.name}, ${data.country}:</strong>`;
             picSection.innerHTML = `<img src=${data.picture}>`;
             data.forcast.forEach(element => {
                 output.innerHTML += `
@@ -32,7 +32,9 @@ async function tripData() {
                 </div>`;
             });            
             forcastHead.innerHTML = `<strong>Your 7-day forcast: </strong>`;
-            timeOutput.innerHTML = `<strong>Days until trip: ${countDown(tripDate)}</strong>`;
+            outputHead.appendChild(timeOutput)
+            timeOutput.setAttribute('id', 'countDown')
+            timeOutput.innerHTML = `Days until trip: ${countDown(tripDate)}`;
             outputHead.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
         } catch(e){
             console.log("error", e);
