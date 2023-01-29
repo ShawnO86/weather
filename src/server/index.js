@@ -33,10 +33,13 @@ app.listen(3001, function () {
 
 const geoKey = process.env.geonames_key;
 const weatherBitKey = process.env.weatherbit_key;
+const pixaBayKey = process.env.pixabay_key;
 //API_KEYS must be defined in project root within .env file!
+
 app.get('/data/:city', async (req, res) => {
   await getGeoData(req, res);
   try {
+    console.log(projectData);
     res.send(projectData);
   } catch (e) {
     console.log("error", e);
@@ -56,7 +59,8 @@ const getGeoData = async (req, res) => {
       name: data.geonames[0].toponymName
     };
     //console.log("geo data:", data);
-    await getForcastArr(projectData.lat, projectData.long)
+    await getForcastArr(projectData.lat, projectData.long);
+    await getPic(projectData.local, projectData.country);
   } catch (e) {
     console.log(e);
   }
@@ -165,9 +169,20 @@ const getForcastArr = async (lat, long) => {
         iconDesc: {icon: "https://www.weatherbit.io/static/img/icons/" + element.weather.icon + ".png", description: element.weather.description}
       })
     });  */
-    console.log(forcast);
     projectData.forcast = forcast;
   } catch (e) {
     console.log("error:", e);
+  }
+}
+
+const getPic = async (local, country) => {
+  //let picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${local +"+"+ country}`);
+  try {
+    //let data = await picData.json();
+    //console.log("picture data: ", data.hits[0].webformatURL);
+    projectData.picture = 'https://pixabay.com/get/gfe94ebc07c35911f7b11a9a1a1560f04aec859a78162b4da407752ea0d2943e037574de269906faafa36e7ac7254c4f9_640.jpg';
+    //projectData.picture = data.hits[0].webformatURL;
+  } catch (e) {
+    console.log("error", e);
   }
 }

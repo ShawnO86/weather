@@ -1,13 +1,15 @@
 import { getData } from './getData'
 import { countDown } from './countDown';
 
-async function weatherData() {
+async function tripData() {
     const city = document.getElementById('cityName').value;    
     const tripDate = document.getElementById('destDate').value;
     const output = document.getElementById('weatherOutput');
-    const forcastHead = document.getElementById('outputHeader');
+    const outputHead = document.getElementById('outputHeader');
+    const forcastHead = document.getElementById('forcastHead');
     const timeOutput = document.getElementById('countDown');
     const outputSection = document.getElementById('outputSection');
+    const picSection = document.getElementById('picInfo');
     outputSection.classList.remove('hideSection');
 
     if (!city || !tripDate) {
@@ -17,7 +19,8 @@ async function weatherData() {
             outputSection.classList.remove('hideSection');
             output.innerHTML = '';
             const data = await getData(`http://localhost:3001/data/${city}`);
-            forcastHead.innerHTML = `Your 7-day Forcast for ${data.name}, ${data.local}:`;
+            outputHead.innerHTML = `Destination: ${data.name}, ${data.local}:`;
+            picSection.innerHTML = `<img src=${data.picture}>`;
             data.forcast.forEach(element => {
                 output.innerHTML += `
                 <div class='weatherCard'> 
@@ -26,14 +29,15 @@ async function weatherData() {
                 <p>High: ${element.high_temp}&#8457; -- Low: ${element.low_temp}&#8457;</p>
                 <p>Humidity: ${element.humidity}</p>
                 <p>Wind speed: ${element.wind_speed} <br> Gusts up to: ${element.wind_gusts}</p>
-                </div>`
-            });
+                </div>`;
+            });            
+            forcastHead.innerHTML = `<strong>Your 7-day forcast: </strong>`;
             timeOutput.innerHTML = `<strong>Days until trip: ${countDown(tripDate)}</strong>`;
-            outputSection.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+            outputHead.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
         } catch(e){
             console.log("error", e);
         }
         }
 }
 
-export { weatherData }
+export { tripData }

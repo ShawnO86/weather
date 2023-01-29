@@ -14,25 +14,33 @@
 
 
         <section id="formSection">
-            <div id="formInfo"><h1>7 day weather forcasts and local info for your destination.</h1></div>
+            <div id="formInfo">
+                <h1>Planning a trip?</h1>
+            </div>
             <form>
-                
                 <div id="formInputs">
+                    <h2>Get a 7-day forcast and info about your destination:</h2>
                     <label for="cityName">Destination:</label>
-                    <input type="text" id="cityName" name="cityName"
-                        placeholder="(country, region, city, or zipcode)" required>
-                    <label for="destDate">Date of forcast:</label>
+                    <input type="text" id="cityName" name="cityName" placeholder="(country, region, city, or zipcode)"
+                        required>
+                    <label for="destDate">Date:</label>
                     <input type="datetime-local" id="destDate" name="destDate" placeholder="mm/dd/yyyy" required>
-                    <input type="submit" id="sub" value="Get weather">
+                    <input type="submit" id="sub" value="Submit">
                 </div>
             </form>
-      
-        </section>      
+        </section>
 
         <section id="outputSection" class="hideSection">
-            <h3 id="outputHeader"></h3>
+            <h3 id="outputHeader"></h3>            
             <div id="countDown"></div>
-            <div id="weatherOutput"></div>
+            <div id="picInfo"></div>                
+            <div id="forcastHead"></div>
+            <div id="weatherOutput">
+            </div>
+            <div id="pixaBayRef">
+                <div id="pixaBayAtt">Destination images provided by:</div>
+                <div id="pixaBayLogo"></div>
+            </div>
         </section>
 
     </main>
