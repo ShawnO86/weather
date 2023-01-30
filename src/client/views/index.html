@@ -11,7 +11,6 @@
 <body>
 
     <main>
-
         <!-- user input form -->
         <section id="formSection">
             <div id="formInfo">
@@ -30,8 +29,8 @@
             </form>
         </section>
 
+        <!-- destination info output area -->
         <section id="outputSection" class="hideSection">
-            <!-- destination info -->
             <div id="destInfo">
                 <div id="destTxt">
                     <h3 id="outputHeader"></h3>
@@ -42,23 +41,27 @@
             <div id="weatherOutput">
             </div>
 
-            <!-- attributions -->
+            <!-- API attributions/references -->
             <div id="ref">
-                <div id="pixaBayAtt">
+                <div id="pixaBayAtt" class="refBox">
                     <p>Destination images provided by <a href="www.pixabay.com">pixabay.com</a></p>
                     <div id="pixaBayLogo"></div>
                 </div>
-                <div id="geoRef">
+                <div id="geoRef" class="refBox">
                     <p>Location data from <a href="www.geonames.org">geonames.org</a></p>
                     <div id="geoCC"><a href="https://creativecommons.org/licenses/by/4.0/">
                             <img alt="Creative Commons License"
                                 src="https://i.creativecommons.org/l/by/4.0/88x31.png"></a>
                     </div>
                 </div>
-                <div id="weatherAtt">
+                <div id="weatherAtt" class="refBox">
                     <p>Weather data provided by <a href="www.weatherbit.io">weatherbit.io</a></p>
                     <div id="weatherCC"><img alt="Creative Commons License"
                             src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png"></div>
+                </div>
+                <div id="countryAtt" class="refBox">
+                    <p>Country data provided by <a href="www.restcountries.com">restcountries.com</a></p>
+                    <div id="countryLicense"><a href="www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License - MPL 2.0</a></div>
                 </div>
             </div>
 

@@ -27,12 +27,13 @@
 
     form {
         padding: 3rem 0;
-        width: clamp(20rem, 35vw, 40rem);
+        width: clamp(20rem, 40vw, 45rem);
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         border-radius: 1rem;
-        background-color: rgba(252, 252, 252, 0.75);
+        box-shadow: -2px 2px 5px 0 rgba(20, 20, 20, 0.5);
+        background-color: rgba(252, 252, 252, 0.8);
         margin: 2rem 0 0 0;
     }
 
@@ -56,6 +57,7 @@
 
         h2 {
             text-align: center;
+            margin: 0 0 2rem 0;
         }
     }
 }

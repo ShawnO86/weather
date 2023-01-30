@@ -21,9 +21,10 @@ async function main() {
             const data = await getData(`http://localhost:3001/data/${city}`);
             const countryData = await getData(`https://restcountries.com/v3.1/name/${data.country}`)
             let currency = countryData[0].currencies;
+            let language = countryData[0].languages;
             let currencyKey = Object.keys(currency);
+            let languageKey = Object.keys(language);
 
-            console.log(currency[currencyKey].name)
             outputHead.innerHTML = `<strong>Destination info for: <br>${data.name}, ${data.local}.</strong>`;
             picSection.innerHTML = `<img src=${data.picture}>`;
             data.forcast.forEach(element => {
@@ -44,7 +45,8 @@ async function main() {
             <li><strong>Latitude: </strong>${data.lat} || Longitude: ${data.long}</li>
             <li><strong>Population: </strong>${data.pop.toLocaleString()}</li>
             <li><strong>Country: </strong>${data.country}</li>            
-            <li><strong>Capital: </strong>${countryData[0].capital[0]}            
+            <li><strong>Capital: </strong>${countryData[0].capital[0]}
+            <li><strong>Main language: </strong>${language[languageKey]}     
             <li><strong>Currency: </strong>(${currency[currencyKey].symbol + ') ' + currency[currencyKey].name}
             <li><strong>Flag:</strong></li>
             <li><img src=${countryData[0].flags.png} id="flag">
