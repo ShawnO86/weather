@@ -1,0 +1,90 @@
+#outputSection {
+    background-color: rgb(149, 173, 196);
+    min-height: 10rem;
+    text-align: center;
+
+    #outputHeader {
+        padding-top: 2rem;
+    }
+
+    #countDown {
+        padding-bottom: 2rem;
+        font-size: 1rem;
+    }
+
+    #forcastHead {
+        padding-top: 2rem;
+    }
+
+    #destInfo {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: left;
+        gap: 10vw;
+        padding: 4rem 1rem;
+        background-color: #333;
+
+        #destTxt {
+            font-size: x-large;
+            min-width: 20rem;
+            color: rgba(252, 252, 252, 1);
+            scroll-margin-top: 2rem;
+
+            #countDown {
+                ul {
+                    list-style: none;
+                    padding-left: 0;
+                    line-height: 1.5rem;
+                }
+
+                #flag {
+                    width: clamp(15rem, 25vw, 25rem);
+                    padding-top: 1rem;
+                }
+            }
+        }
+
+        #destPic {
+            img {
+                display: block;
+                margin: 0 auto;
+                border-radius: 1rem;
+                width: clamp(25rem, 40vw, 50rem);
+            }
+        }
+    }
+
+    #ref {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+
+        #pixaBayLogo {
+            content: url('../views/img/pixabayLogo.png');
+            width: 10rem;
+            margin: auto;
+        }
+    }
+
+    #weatherOutput {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        justify-items: center;
+        padding: 4rem 1rem;
+        margin: 0;
+        gap: 1rem;
+
+        .weatherCard {
+            width: clamp(20rem, 30vw, 25rem);
+            background-color: rgba(252, 252, 252, 1);
+            box-shadow: 1px 1px 3px 0 rgba(20, 20, 20, 0.5);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+        }
+    }
+}
