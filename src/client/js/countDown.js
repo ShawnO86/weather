@@ -5,7 +5,7 @@ function countDown(date) {
     let total = tripDate - now;
     let hours = Math.floor((total % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let days = Math.floor(total/(1000*60*60*24));
-    return days + ' day(s) and ' + hours + ' hour(s).';
+    return days + ' day(s) and ' + hours + ' hour(s)';
 }
 
 export {countDown}

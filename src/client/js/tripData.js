@@ -9,7 +9,7 @@ async function tripData() {
     const forcastHead = document.getElementById('forcastHead');
     const outputSection = document.getElementById('outputSection');
     const picSection = document.getElementById('destPic');
-    const timeOutput = document.createElement('div');
+    const destInfo = document.createElement('div');
     outputSection.classList.remove('hideSection');
 
     if (!city || !tripDate) {
@@ -19,7 +19,12 @@ async function tripData() {
             outputSection.classList.remove('hideSection');
             output.innerHTML = '';
             const data = await getData(`http://localhost:3001/data/${city}`);
-            outputHead.innerHTML = `<strong>Destination: ${data.name}, ${data.country}:</strong>`;
+            const countryData = await getData(`https://restcountries.com/v3.1/name/${data.country}`)
+            let currency = countryData[0].currencies;
+            let currencyKey = Object.keys(currency);
+
+            console.log(currency[currencyKey].name)
+            outputHead.innerHTML = `<strong>Destination info for: <br>${data.name}, ${data.local}.</strong>`;
             picSection.innerHTML = `<img src=${data.picture}>`;
             data.forcast.forEach(element => {
                 output.innerHTML += `
@@ -32,9 +37,18 @@ async function tripData() {
                 </div>`;
             });            
             forcastHead.innerHTML = `<strong>Your 7-day forcast: </strong>`;
-            outputHead.appendChild(timeOutput)
-            timeOutput.setAttribute('id', 'countDown')
-            timeOutput.innerHTML = `Days until trip: ${countDown(tripDate)}`;
+            outputHead.appendChild(destInfo)
+            destInfo.setAttribute('id', 'countDown')
+            destInfo.innerHTML = `<ul>
+            <li><strong>Days until trip: </strong>${countDown(tripDate)}</li>
+            <li><strong>Latitude: </strong>${data.lat} || Longitude: ${data.long}</li>
+            <li><strong>Population: </strong>${data.pop.toLocaleString()}</li>
+            <li><strong>Country: </strong>${data.country}</li>            
+            <li><strong>Capital: </strong>${countryData[0].capital[0]}            
+            <li><strong>Currency: </strong>(${currency[currencyKey].symbol + ') ' + currency[currencyKey].name}
+            <li><strong>Flag:</strong></li>
+            <li><img src=${countryData[0].flags.png} id="flag">
+            </ul>`;
             outputHead.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
         } catch(e){
             console.log("error", e);
