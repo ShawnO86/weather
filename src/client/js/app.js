@@ -1,7 +1,7 @@
 import { getData } from './getData'
 import { countDown } from './countDown';
 
-async function tripData() {
+async function main() {
     const city = document.getElementById('cityName').value;    
     const tripDate = document.getElementById('destDate').value;
     const output = document.getElementById('weatherOutput');
@@ -56,4 +56,4 @@ async function tripData() {
         }
 }
 
-export { tripData }
+export { main }

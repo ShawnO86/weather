@@ -1,7 +1,7 @@
-import { tripData } from './js/tripData'
+import { main } from './js/app'
 import './styles/main.scss'
 
 document.getElementById('sub').addEventListener("click", (e) => {
     e.preventDefault()
-    tripData()
+    main()
 })
