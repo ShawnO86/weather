@@ -14,7 +14,7 @@
     box-sizing: border-box;
 
     #formInfo {
-        width: clamp(20rem, 45vw, 60rem);
+        width: clamp(20rem, 55vw, 60rem);
         color: rgba(252, 252, 252, 1);
 
         h1 {
@@ -27,7 +27,7 @@
 
     form {
         padding: 3rem 0;
-        width: clamp(20rem, 40vw, 45rem);
+        width: clamp(20rem, 55vw, 45rem);
         display: flex;
         flex-wrap: wrap;
         justify-content: center;

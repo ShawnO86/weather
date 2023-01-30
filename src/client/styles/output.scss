@@ -3,10 +3,6 @@
     min-height: 10rem;
     text-align: center;
 
-    #outputHeader {
-        padding-top: 2rem;
-    }
-
     #countDown {
         padding-bottom: 2rem;
         font-size: 1rem;
@@ -22,7 +18,7 @@
         justify-content: center;
         align-items: center;
         text-align: left;
-        gap: 10vw;
+        gap: clamp(2rem, 5vw, 15rem);
         padding: 4rem 1rem;
         background-color: #333;
 
@@ -40,7 +36,7 @@
                 }
 
                 #flag {
-                    width: clamp(15rem, 25vw, 25rem);
+                    width: clamp(20rem, 25vw, 26rem);
                     padding-top: 1rem;
                 }
             }
@@ -49,9 +45,8 @@
         #destPic {
             img {
                 display: block;
-                margin: 0 auto;
-                border-radius: 1rem;
-                width: clamp(25rem, 40vw, 50rem);
+                margin: auto;
+                width: clamp(34rem, 50vw, 45rem);
             }
         }
     }
@@ -68,18 +63,18 @@
             width: clamp(20rem, 30vw, 25rem);
             background-color: rgba(252, 252, 252, 1);
             box-shadow: 1px 1px 3px 0 rgba(20, 20, 20, 0.5);
-            border-radius: 0.5rem;
             padding: 0.5rem;
         }
     }   
      #ref {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
-        justify-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
         background-color: rgba(252, 252, 252, 1);
         margin: 5rem 0 2rem 0;
         padding: 2rem 0;
         gap: 1rem;
+        font-size: 0.75rem;
         #pixaBayLogo {
             content: url('../views/img/pixabayLogo.png');
             width: 10rem;
@@ -92,3 +87,74 @@
         }
     }
 }
+
+@media screen and (max-width: 950px) {
+    #outputSection {
+        min-height: 5rem;
+    
+        #countDown {
+            padding-bottom: 1rem;
+        }
+    
+        #forcastHead {
+            padding-top: 1rem;
+        }
+    
+        #destInfo {
+            flex-direction: column-reverse;
+            gap: 1rem;
+            padding: 2rem 0.5rem;
+    
+            #destTxt {
+                font-size: 1.5rem;
+                min-width: 10rem;
+    
+                #countDown {
+                    ul {
+                        list-style: none;
+                        padding-left: 0;
+                        line-height: 1.5rem;
+                    }
+    
+                    #flag {
+                        display: block;
+                        margin: 0 auto;
+                        width: clamp(18rem, 50vw, 40rem);
+                    }
+                }
+            }
+    
+            #destPic {
+                img {
+                    width: clamp(18rem, 50vw, 40rem);
+                }
+            }
+        }
+    
+        #weatherOutput {
+            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+            padding: 2rem 0.5rem;
+            gap: 0.5rem;
+    
+            .weatherCard {
+                width: clamp(18rem, 30vw, 25rem);
+                border-radius: 0;
+                padding: 0.25rem;
+            }
+        }   
+         #ref {
+            margin: 2.5rem 0 1rem 0;
+            padding: 1rem 0;
+            gap: 0.5rem;
+            #pixaBayLogo {
+                width: 8rem;
+            }
+            .refBox {
+                width: 8rem;
+                padding: 0.5rem;
+            }
+        }
+    }
+    
+}
+

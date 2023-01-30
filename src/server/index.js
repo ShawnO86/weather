@@ -67,11 +67,11 @@ const getGeoData = async (req, res) => {
 }
 
 const getForcastArr = async (lat, long) => {
-  //let weatherData = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&units=I&key=${weatherBitKey}`);
+  let weatherData = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&units=I&key=${weatherBitKey}`);
   try {
-    //const wData = await weatherData.json();
+    const wData = await weatherData.json();
     let forcast = [];
-   /*  wData.data.forEach(element => {
+   wData.data.forEach(element => {
       forcast.push({
         date: element.datetime,
         high_temp: element.high_temp,
@@ -84,7 +84,7 @@ const getForcastArr = async (lat, long) => {
         snowAmt: element.snow,
         iconDesc: {icon: "https://www.weatherbit.io/static/img/icons/" + element.weather.icon + ".png", description: element.weather.description}
       })
-    });  */
+    }); 
     projectData.forcast = forcast;
   } catch (e) {
     console.log("error:", e);
