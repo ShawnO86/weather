@@ -28,7 +28,7 @@ app.get('/', function (req, res) {
 });
 
 app.listen(3001, function () {
-  console.log('App listening on port 3001!');
+  //console.log('App listening on port 3001!');
 });
 
 const geoKey = process.env.geonames_key;
@@ -58,7 +58,7 @@ const getGeoData = async (req, res) => {
       name: data.geonames[0].toponymName,
       pop: data.geonames[0].population
     };
-    console.log(data)
+    //console.log(data)
     await getForcastArr(projectData.lat, projectData.long);
     await getPic(projectData.local, projectData.country);
   } catch (e) {
