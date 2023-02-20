@@ -15,12 +15,21 @@
     #destInfo {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         text-align: left;
         gap: clamp(2rem, 5vw, 15rem);
         padding: 4rem 1rem;
         background-color: #333;
+        min-height: 50vh;
+        #destPic {
+            img {
+                display: block;
+                margin: auto;
+               width: clamp(34rem, 50vw, 45rem);
+            }
+        }
+    }
 
         #destTxt {
             font-size: x-large;
@@ -32,7 +41,7 @@
                 ul {
                     list-style: none;
                     padding-left: 0;
-                    line-height: 1.5rem;
+                    line-height: 2rem;
                 }
 
                 #flag {
@@ -41,15 +50,6 @@
                 }
             }
         }
-
-        #destPic {
-            img {
-                display: block;
-                margin: auto;
-                width: clamp(34rem, 50vw, 45rem);
-            }
-        }
-    }
 
     #weatherOutput {
         display: grid;

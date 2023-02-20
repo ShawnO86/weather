@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
 
 //start server
 app.listen(3001, function () {
-  //console.log('App listening on port 3001!');
+  console.log('App listening on port 3001!');
 });
 
 //retrieve hidden api keys from .env
@@ -56,6 +56,7 @@ const getGeoData = async (req, res) => {
   let geoData = await fetch(`http://api.geonames.org/searchJSON?q=${city}&maxRows=1&fuzzy=0.8&username=${geoKey}`);
   try {
     const data = await geoData.json();
+    console.log("geonames data: " + data.geonames[0])
     //populate projectData object with api data
     projectData = {
       long: data.geonames[0].lng,
@@ -78,7 +79,7 @@ const getForcastArr = async (lat, long) => {
   let weatherData = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&units=I&key=${weatherBitKey}`);
   try {
     const wData = await weatherData.json();
-    console.log(wData)
+    //console.log("weather data: " + wData)
     //declare forcast array
     let forcast = [];
     //Loop over weatherbit api data - to extract data app uses

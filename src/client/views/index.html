@@ -12,29 +12,32 @@
 
     <main>
         <!-- user input form -->
-        <section id="formSection">
-            <div id="formInfo">
+        <section id="formSection" class="night">
+            <div id="formHolder">
                 <h1>Planning a trip?</h1>
+            <div id="formAligner">
+                <form>
+                    <div id="formText">
+                        <p>Get a current 7 day</p>
+                        <h2>Weather Forcast</h2>
+                        <p>with information of your destination</p>
+                    </div>
+                    <div id="formInputs">
+                        <input type="text" id="cityName" name="cityName" placeholder="Enter country, city, OR zipcode"
+                            required>
+                        <input type="submit" id="sub" value="GO">
+                    </div>
+                </form>
             </div>
-            <form>
-                <div id="formInputs">
-                    <h2>Get a 7-day forcast and info about your destination:</h2>
-                    <label for="cityName">Destination:</label>
-                    <input type="text" id="cityName" name="cityName" placeholder="(country, region, city, or zipcode)"
-                        required>
-                    <label for="destDate">Date:</label>
-                    <input type="datetime-local" id="destDate" name="destDate" placeholder="mm/dd/yyyy" required>
-                    <input type="submit" id="sub" value="Submit">
-                </div>
-            </form>
+        </div>
         </section>
 
         <!-- destination info output area -->
         <section id="outputSection" class="hideSection">
             <div id="destInfo">
+                <div id="destPic"></div>
                 <div id="destTxt">
                 </div>
-                <div id="destPic"></div>
             </div>
             <div id="forcastHead"></div>
             <div id="weatherOutput">
@@ -58,23 +61,11 @@
                     <div id="weatherCC"><img alt="Creative Commons License"
                             src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png"></div>
                 </div>
-                <div id="countryAtt" class="refBox">
-                    <p>Country data provided by <a href="www.restcountries.com">restcountries.com</a></p>
-                    <div id="countryLicense"><a href="www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License - MPL 2.0</a></div>
-                </div>
             </div>
 
         </section>
 
     </main>
-
-    <script>
-                if ('serviceWorker' in navigator) {
-                    window.addEventListener('load', () => {
-                        navigator.serviceWorker.register('/service-worker.js');
-                    });
-                } 
-    </script>
 </body>
 
 </html>
