@@ -9,10 +9,8 @@ async function main() {
     //output fields
     const output = document.getElementById('weatherOutput');
     const outputHead = document.getElementById('destTxt');
-    const forcastHead = document.getElementById('forcastHead');
     const outputSection = document.getElementById('outputSection');
-    const picSection = document.getElementById('destPic');
-    const destInfo = document.createElement('div');
+    const destInfoText = document.createElement('div');
 
     //check if inputs are filled in
     if (!city) {
@@ -30,8 +28,8 @@ async function main() {
             //output the city and local area or region name
             outputHead.innerHTML = `<strong>Destination info for: <br>${data.name}, ${data.local}, ${data.country}.</strong>`;
             //output the city or country image found on pixabay
-            picSection.innerHTML = `<img src=${data.picture}>`;
-            forcastHead.innerHTML = `<strong>Your 7-day forcast: </strong>`;
+            destInfo.style.backgroundImage = `url(${data.picture})`;
+            output.innerHTML = `<h3 class='forcastHead'>Your 7-day forcast for ${data.name}, ${data.local} - ${data.country}</h3>`
             //loop through forcast from express server's projectData object          
             data.forcast.forEach(element => {
                 //output weather - each weatherCard div is a different day in 7-day forcast
@@ -41,18 +39,19 @@ async function main() {
                 <img src=${element.iconDesc.icon}>
                 <p>High: ${element.high_temp}&#8457; -- Low: ${element.low_temp}&#8457;</p>
                 <p>Humidity: ${element.humidity}</p>
-                <p>Wind speed: ${element.wind_speed} <br> Gusts up to: ${element.wind_gusts}</p>
+                <p>Wind speed: ${element.wind_speed}</p>
+                <p>With gusts up to: ${element.wind_gusts}</p>
                 </div>`;
             });            
             //create and populate destination information card
-            outputHead.appendChild(destInfo)
-            destInfo.setAttribute('id', 'countDown')
-            destInfo.innerHTML = `<ul>
+            outputHead.appendChild(destInfoText)
+            destInfoText.setAttribute('id', 'countryData')
+            destInfoText.innerHTML = `<ul>
             <li><strong>Latitude: </strong>${data.lat} || Longitude: ${data.long}</li>
             <li><strong>Population: </strong>${data.pop.toLocaleString()}</li>          
             </ul>`;
             //automatically scroll to the output info after its updated
-            outputHead.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+            outputSection.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
         } catch(e){
             console.log("error", e);
         }

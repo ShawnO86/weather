@@ -56,7 +56,6 @@ const getGeoData = async (req, res) => {
   let geoData = await fetch(`http://api.geonames.org/searchJSON?q=${city}&maxRows=1&fuzzy=0.8&username=${geoKey}`);
   try {
     const data = await geoData.json();
-    console.log("geonames data: " + data.geonames[0])
     //populate projectData object with api data
     projectData = {
       long: data.geonames[0].lng,
@@ -79,7 +78,6 @@ const getForcastArr = async (lat, long) => {
   let weatherData = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&units=I&key=${weatherBitKey}`);
   try {
     const wData = await weatherData.json();
-    //console.log("weather data: " + wData)
     //declare forcast array
     let forcast = [];
     //Loop over weatherbit api data - to extract data app uses
@@ -111,13 +109,14 @@ const getPic = async (local, country) => {
   let picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${local +"+"+ country}`);
   try {
     let data = await picData.json();
+    console.log("pic data:", data)
     //if nothing found on city call pixabay with just country
     if(data.total == 0) {
       picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${local='' + country}`)
       try {
         data = await picData.json();
         //add country picture URL to projectData object
-        projectData.picture = data.hits[0].webformatURL;
+        projectData.picture = data.hits[0].largeImageURL;
       } catch (e) {
         console.log("Nested pic fetch error", e);
       }

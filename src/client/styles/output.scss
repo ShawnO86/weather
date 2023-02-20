@@ -1,160 +1,39 @@
-#outputSection {
-    background-color: rgb(149, 173, 196);
-    min-height: 10rem;
-    text-align: center;
-
-    #countDown {
-        padding-bottom: 2rem;
-        font-size: 1rem;
-    }
-
-    #forcastHead {
-        padding-top: 2rem;
-    }
+#outputSection.night {
+    padding-top: 1rem;
+    background-color: #000;
+    color: #fff;
 
     #destInfo {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-        gap: clamp(2rem, 5vw, 15rem);
-        padding: 4rem 1rem;
-        background-color: #333;
-        min-height: 50vh;
-        #destPic {
-            img {
-                display: block;
-                margin: auto;
-               width: clamp(34rem, 50vw, 45rem);
-            }
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 80vh;
+        #destTxt {
+            position: relative;
+            top: 0%;
+            left: 0;
         }
     }
-
-        #destTxt {
-            font-size: x-large;
-            min-width: 20rem;
-            color: rgba(252, 252, 252, 1);
-            scroll-margin-top: 2rem;
-
-            #countDown {
-                ul {
-                    list-style: none;
-                    padding-left: 0;
-                    line-height: 2rem;
-                }
-
-                #flag {
-                    width: clamp(20rem, 25vw, 26rem);
-                    padding-top: 1rem;
-                }
-            }
-        }
 
     #weatherOutput {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-        justify-items: center;
-        padding: 4rem 1rem;
-        margin: 0;
-        gap: 1rem;
-
-        .weatherCard {
-            width: clamp(20rem, 30vw, 25rem);
-            background-color: rgba(252, 252, 252, 1);
-            box-shadow: 1px 1px 3px 0 rgba(20, 20, 20, 0.5);
-            padding: 0.5rem;
-        }
-    }   
-     #ref {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
-        background-color: rgba(252, 252, 252, 1);
-        margin: 5rem 0 2rem 0;
-        padding: 2rem 0;
+        justify-content: center;
         gap: 1rem;
-        font-size: 0.75rem;
-        #pixaBayLogo {
-            content: url('../views/img/pixabayLogo.png');
-            width: 10rem;
-            margin: auto;
-        }
-        .refBox {
-            width: 10rem;
+        padding: 1rem 0;
+        margin: 1rem auto 0 auto;
+        background-color: rgba(51, 51, 51, 0.5);
+        .forcastHead {
             text-align: center;
-            padding: 1rem;
+           width: 100%;
+        }
+        .weatherCard {
+            background-color: rgba(51, 51, 51, 0.75);
+            padding: 0.5rem;
+            width: 15rem;
+            text-align: center;
+            border-radius: 0.25rem;
         }
     }
-}
 
-@media screen and (max-width: 950px) {
-    #outputSection {
-        min-height: 5rem;
-    
-        #countDown {
-            padding-bottom: 1rem;
-        }
-    
-        #forcastHead {
-            padding-top: 1rem;
-        }
-    
-        #destInfo {
-            flex-direction: column-reverse;
-            gap: 1rem;
-            padding: 2rem 0.5rem;
-    
-            #destTxt {
-                font-size: 1.5rem;
-                min-width: 10rem;
-    
-                #countDown {
-                    ul {
-                        list-style: none;
-                        padding-left: 0;
-                        line-height: 1.5rem;
-                    }
-    
-                    #flag {
-                        display: block;
-                        margin: 0 auto;
-                        width: clamp(18rem, 50vw, 40rem);
-                    }
-                }
-            }
-    
-            #destPic {
-                img {
-                    width: clamp(18rem, 50vw, 40rem);
-                }
-            }
-        }
-    
-        #weatherOutput {
-            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-            padding: 2rem 0.5rem;
-            gap: 0.5rem;
-    
-            .weatherCard {
-                width: clamp(18rem, 30vw, 25rem);
-                border-radius: 0;
-                padding: 0.25rem;
-            }
-        }   
-         #ref {
-            margin: 2.5rem 0 1rem 0;
-            padding: 1rem 0;
-            gap: 0.5rem;
-            #pixaBayLogo {
-                width: 8rem;
-            }
-            .refBox {
-                width: 8rem;
-                padding: 0.5rem;
-            }
-        }
-    }
-    
 }
-
