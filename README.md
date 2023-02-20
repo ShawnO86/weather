@@ -18,12 +18,12 @@
 --Build for deployment - NPM run build
 
 
-Technology used : \
+Technology being used : \
 Fetch \
 Async/await \
 Node v18.13.0 \
-Express \
-Webpack with babel, html, and SASS loaders \
+Express.js \
+Webpack \
 
 
 

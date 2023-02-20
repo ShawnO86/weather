@@ -62,8 +62,7 @@ const getGeoData = async (req, res) => {
       lat: data.geonames[0].lat,
       country: data.geonames[0].countryName,
       local: data.geonames[0].adminName1,
-      name: data.geonames[0].toponymName,
-      pop: data.geonames[0].population
+      name: data.geonames[0].toponymName
     };
     //call other APIs that require geonames data
     await getForcastArr(projectData.lat, projectData.long);
@@ -109,7 +108,6 @@ const getPic = async (local, country) => {
   let picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${local +"+"+ country}`);
   try {
     let data = await picData.json();
-    console.log("pic data:", data)
     //if nothing found on city call pixabay with just country
     if(data.total == 0) {
       picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${local='' + country}`)
