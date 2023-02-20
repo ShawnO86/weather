@@ -1,8 +1,7 @@
-#formSection.day {
+#formSection {
     margin: 0;
     min-height: 100vh;
     width: 100%;
-    background-image: url('../assets/dayPic.jpg');
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -21,8 +20,6 @@
 
         #formAligner {
             text-align: right;
-            background-color: rgba($color: #ffffff, $alpha: 0.65);
-            border: 1px solid #4280AC;
             padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2rem);
             border-radius: 0.5rem;
             width: clamp(15rem, 30vw, 20rem);
@@ -42,63 +39,28 @@
                 input {
                     padding: clamp(0.5rem, 1vw, 0.75rem);
                     border-radius: 0.25rem;
-                    border: 1px solid #4280AC;
                     text-align: center;
                     font-size: 0.75rem;
                 }
 
                 #cityName {
                     width: 100%;
-                    background-color: rgba($color: #ffffff, $alpha: 0.5);
                 }
 
                 #sub {
                     width: 3rem;
-                    background-color: rgba($color: #4280AC, $alpha: 0.5);
                 }
             }
         }
     }
 }
 
-#formSection.night {
-    margin: 0;
-    min-height: 100vh;
-    width: 100%;
-    background-image: url('../assets/nightPic.jpg');
-    background-position: 50% 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 5rem 0 30vh clamp(3rem, 10vw, 7rem);
-    box-sizing: border-box;
-    display: flex;
-
-    #formHolder {
-        width: fit-content;
-
-        h1 {
-            margin: -0.5rem 0;
-            color: #ffffff;
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            text-align: center;
-        }
+#formSection.day {
+    background-image: url('../assets/dayPic.jpg');
 
         #formAligner {
-            text-align: right;
-            background-color: rgba($color: #000, $alpha: 0.65);
-            color: #ffffff;
-            border: 1px solid #1E3972;
-            padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2rem);
-            border-radius: 0.5rem;
-            width: clamp(15rem, 30vw, 20rem);
-            height: fit-content;
-
-            #formText {
-                font-size: clamp(1rem, 2vw, 1.25rem);
-                h2 {
-                    margin: clamp(1rem, 2vw, 1.5rem) 0;
-                }
-            }
+            background-color: rgba($color: #ffffff, $alpha: 0.65);
+            border: 1px solid #4280AC;
 
             #formInputs {
                 display: flex;
@@ -106,25 +68,43 @@
 
                 input {
                     padding: clamp(0.5rem, 1vw, 0.75rem);
-                    border-radius: 0.25rem;
-                    border: 1px solid #1E3972;
-                    text-align: center;
-                    font-size: 0.75rem;
+                    border: 1px solid #4280AC;
                 }
 
                 #cityName {
-                    width: 100%;
+                    background-color: rgba($color: #ffffff, $alpha: 0.5);
+                }
+
+                #sub {
+                    background-color: rgba($color: #4280AC, $alpha: 0.5);
+                }
+            }
+        }
+}
+
+#formSection.night {
+    background-image: url('../assets/nightPic.jpg');
+
+        #formAligner {
+            background-color: rgba($color: #000, $alpha: 0.65);
+            color: #ffffff;
+            border: 1px solid #1E3972;
+
+            #formInputs {
+                input {
+                    border: 1px solid #1E3972;
+                }
+
+                #cityName {
                     background-color: rgba($color: #000, $alpha: 0.5);
                 }
 
                 #sub {
-                    width: 3rem;
                     background-color: rgba($color: #1E3972, $alpha: 0.5);
                     color: #ffffff;
                 }
             }
         }
-    }
 }
 
 @media screen and (max-width: 600px) {
