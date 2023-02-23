@@ -5,7 +5,7 @@ function timeSwitch() {
     const timeGreeting = document.getElementById('time');
     //get current time
     const date = new Date();
-    let now = 20;
+    let now = date.getHours();
     if(now >= 5 && now <= 11) {
         formSection.classList.add('day')
         outputSection.classList.add('day')
