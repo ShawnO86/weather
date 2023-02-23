@@ -5,11 +5,8 @@ import { timeSwitch } from './js/timeSwitch';
 //main stylesheet
 import './styles/main.scss'
 
-
-if(timeSwitch() == "day"){
-    console.log("day")
-}
-
+//check time of day and switch style 
+timeSwitch();
 //form submit button
 document.getElementById('sub').addEventListener("click", (e) => {
     //prevent refresh of page

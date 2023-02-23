@@ -56,7 +56,7 @@ const getGeoData = async (req, res) => {
   let geoData = await fetch(`http://api.geonames.org/searchJSON?q=${city}&maxRows=1&fuzzy=0.8&username=${geoKey}`);
   try {
     const data = await geoData.json();
-    console.log("geo data:", data)
+    //console.log("geo data:", data)
     //populate projectData object with api data
     projectData = {
       long: data.geonames[0].lng,
@@ -75,13 +75,14 @@ const getGeoData = async (req, res) => {
 
 //uses geonames data for lat and long to call weatherbit api
 const getForcastArr = async (lat, long) => {
-  //let weatherData = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&units=I&key=${weatherBitKey}`);
+  let weatherData = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&units=I&key=${weatherBitKey}`);
   try {
-    //const wData = await weatherData.json();
+    const wData = await weatherData.json();
+    //console.log("forcast data: ", wData, "Weather el 1: ", wData.data[0].weather)
     //declare forcast array
     let forcast = [];
     //Loop over weatherbit api data - to extract data app uses
-   /* wData.data.forEach(element => {
+    wData.data.forEach(element => {
       //push the 7 days of forcast to the forcast array 
       forcast.push({
         date: element.datetime,
@@ -95,7 +96,7 @@ const getForcastArr = async (lat, long) => {
         snowAmt: element.snow,
         iconDesc: {icon: "https://www.weatherbit.io/static/img/icons/" + element.weather.icon + ".png", description: element.weather.description}
       })
-    });  */
+    }); 
     //add forcast array to projectData
     projectData.forcast = forcast;
   } catch (e) {

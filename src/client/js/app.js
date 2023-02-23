@@ -4,7 +4,7 @@ import { getData } from './getData'
 //main application - gets data and updates ui with it
 async function main() {
     //input fields
-    const city = document.getElementById('cityName').value;    
+    const city = document.getElementById('cityName').value;
     //output fields
     const output = document.getElementById('weatherOutput');
     const outputSection = document.getElementById('outputSection');
@@ -16,7 +16,7 @@ async function main() {
         alert('Incomplete form!');
     } else {
         //if so get api data and update output section
-        try{     
+        try {
             //remove class that hides output area
             outputSection.classList.remove('hideSection');
             sourceAtt.classList.remove('hideSection');
@@ -39,13 +39,13 @@ async function main() {
                 <p>Wind speed: ${element.wind_speed}</p>
                 <p>With gusts up to: ${element.wind_gusts}</p>
                 </div>`;
-            });            
+            });
             //automatically scroll to the output info after its updated
-            outputSection.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
-        } catch(e){
+            outputSection.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+        } catch (e) {
             console.log("error", e);
         }
-        }
+    }
 }
 
 export { main }

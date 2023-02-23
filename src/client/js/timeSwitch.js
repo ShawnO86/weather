@@ -10,7 +10,7 @@ function timeSwitch() {
         formSection.classList.add('day')
         outputSection.classList.add('day')
         timeGreeting.innerText = "Good morning, ";
-    } else if(now >= 12 && now <= 16) {
+    } else if(now >= 12 && now <= 17) {
         formSection.classList.add('day')
         outputSection.classList.add('day')
         timeGreeting.innerText = "Good afternoon, ";
