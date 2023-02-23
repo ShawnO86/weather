@@ -1,4 +1,4 @@
-# Application for Travel planning.
+# Application for weather forcast for most places around the world.
 
 --Will recieve weather data for user specified location with a 7-day forcast and image of the location as the background. 
 
