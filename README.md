@@ -4,8 +4,11 @@
 
 --APIs used:
 --geonames.org for latatude, longitude, population, state or region name, and country of destination
+
 --weatherbit.io (requires geonames lat & long) for 7-day forcast data
+
 --pixabay.com (also requires geonames result) for an image of the destination or country if no specific image exist
+
 
 --Install Package - NPM install
 \
@@ -21,7 +24,7 @@ Fetch \
 Async/await \
 Node v18.13.0 \
 Express.js \
-Webpack \
+Webpack
 
 
 
