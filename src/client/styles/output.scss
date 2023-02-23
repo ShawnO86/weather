@@ -1,18 +1,11 @@
 #outputSection {
-    padding-top: 1rem;
-    background-color: #000;
-    color: #fff;
+    
 
     #destInfo {
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         min-height: 80vh;
-        #destTxt {
-            position: relative;
-            top: 0%;
-            left: 0;
-        }
     }
 
     #weatherOutput {
@@ -20,15 +13,18 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 1rem;
-        padding: 1rem 0;
-        margin: 1rem auto 0 auto;
-        background-color: rgba(51, 51, 51, 0.5);
+        padding: 1rem 0 3rem 0;
+        margin: 0 auto;
+        background-color: rgba(187, 233, 255, 0.5);
+        min-height: 80vh;
         .forcastHead {
             text-align: center;
            width: 100%;
+           margin-top: 2rem;
+           color: #000;
         }
         .weatherCard {
-            background-color: rgba(51, 51, 51, 0.75);
+            background-color: rgba(51, 51, 51, 0.80);
             padding: clamp(0.15rem, 5vw, 1rem);
             width: clamp(7rem, 15vw, 12rem);
             text-align: center;
@@ -39,5 +35,17 @@
             }
         }
     }
+}
+//styles for time of day
+#outputSection.day {
+    color: #fff;
+    #weatherOutput {
+        background-color: rgba(187, 233, 255, 0.5);
+    }
+}
 
+#outputSection.night {
+    #weatherOutput {
+        background-color: rgba(23, 27, 29, 0.5);
+    }
 }

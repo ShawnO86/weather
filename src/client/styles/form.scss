@@ -15,20 +15,24 @@
             margin: -0.5rem 0;
             color: #ffffff;
             font-size: clamp(2rem, 4vw, 2.5rem);
-            text-align: center;
+            text-align: left;
+            span {
+                font-size: clamp(1.5rem, 4vw, 2rem);
+            }
         }
 
         #formAligner {
             text-align: right;
-            padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2rem);
+            padding: clamp(1rem, 2vw, 1.5rem);
             border-radius: 0.5rem;
             width: clamp(15rem, 30vw, 20rem);
             height: fit-content;
 
             #formText {
                 font-size: clamp(1rem, 2vw, 1.25rem);
+                margin: -1rem 0 1rem 0;
                 h2 {
-                    margin: clamp(1rem, 2vw, 1.5rem) 0;
+                    margin: -0.5rem 0;
                 }
             }
 
@@ -111,6 +115,7 @@
     #formSection.day, #formSection.night {
         justify-content: center;
         padding: 5rem 0;
+
         #formHolder {
             margin: 0 auto;
     }

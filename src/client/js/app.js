@@ -1,16 +1,14 @@
 //import function for GET 
 import { getData } from './getData'
 
-
 //main application - gets data and updates ui with it
 async function main() {
     //input fields
     const city = document.getElementById('cityName').value;    
     //output fields
     const output = document.getElementById('weatherOutput');
-    const outputHead = document.getElementById('destTxt');
     const outputSection = document.getElementById('outputSection');
-    const destInfoText = document.createElement('div');
+    const sourceAtt = document.getElementById('ref');
 
     //check if inputs are filled in
     if (!city) {
@@ -21,6 +19,7 @@ async function main() {
         try{     
             //remove class that hides output area
             outputSection.classList.remove('hideSection');
+            sourceAtt.classList.remove('hideSection');
             //reset output html to blank
             output.innerHTML = '';
             //use getData function to GET projectData from express server based on city input 
