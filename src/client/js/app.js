@@ -32,12 +32,13 @@ async function main() {
                 //output weather - each weatherCard div is a different day in 7-day forcast
                 output.innerHTML += `
                 <div class='weatherCard'> 
-                <header>${element.date} - ${element.iconDesc.description}</header>
+                <h4><strong>${element.date}</strong></h4>
                 <img src=${element.iconDesc.icon} class='icon'>
+                <p><strong>${element.iconDesc.description}</strong></p>
                 <p>High: ${element.high_temp}&#8457; -- Low: ${element.low_temp}&#8457;</p>
                 <p>Humidity: ${element.humidity}</p>
                 <p>Wind speed: ${element.wind_speed}</p>
-                <p>With gusts up to: ${element.wind_gusts}</p>
+                <p>Up to: ${element.wind_gusts}</p>
                 </div>`;
             });
             //automatically scroll to the output info after its updated
