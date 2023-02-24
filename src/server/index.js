@@ -19,6 +19,7 @@ app.use(bodyParser.urlencoded({
 dotenv.config();
 
 app.use(express.static('dist'));
+let port = process.env.PORT || 3001;
 
 //api data that is used in app will populate this object
 let projectData = {};
@@ -34,7 +35,7 @@ app.get('/check', function (req, res) {
 });
 
 //start server
-app.listen(process.env.PORT || 3001,  () => console.log('App listening on port 3001!'));
+app.listen(port,  () => console.log('App listening on port: ' + port));
 
 //retrieve hidden api keys from .env
 const geoKey = process.env.geonames_key;
