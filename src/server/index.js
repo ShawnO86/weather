@@ -1,7 +1,6 @@
-var path = require('path');
 const express = require('express');
-var bodyParser = require('body-parser');
-var cors = require('cors');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const dotenv = require('dotenv');
 //to use fetch in node
 const fetch = (...args) =>
