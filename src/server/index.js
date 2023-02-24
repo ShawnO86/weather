@@ -30,9 +30,7 @@ app.get('/', function (req, res) {
 });
 
 //start server
-app.listen(3001, function () {
-  console.log('App listening on port 3001!');
-});
+app.listen(process.env.PORT || 3001,  () => console.log('App listening on port 3001!'));
 
 //retrieve hidden api keys from .env
 const geoKey = process.env.geonames_key;
