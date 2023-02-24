@@ -1,7 +1,7 @@
-# Application for weather forcasts.
 
---Will recieve weather data for user specified area with a 7-day forcast and picture of the destinations country.
---Uses 3 APIs to complete the data.
+# Application for weather forcast for most places around the world.
+
+--Will recieve weather data for user specified location with a 7-day forcast and image of the location as the background. 
 
 --APIs used:
 
@@ -10,6 +10,7 @@
 --weatherbit.io (requires geonames lat & long) for 7-day forcast data
 
 --pixabay.com (also requires geonames result) for an image of the destination or country if no specific image exist
+
 
 --Install Package - NPM install
 \
