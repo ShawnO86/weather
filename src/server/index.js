@@ -28,6 +28,11 @@ app.get('/', function (req, res) {
   res.sendFile('dist/index.html');
 });
 
+//main route for index.html
+app.get('/check', function (req, res) {
+  res.send('200 OK');
+});
+
 //start server
 app.listen(process.env.PORT || 3001,  () => console.log('App listening on port 3001!'));
 
