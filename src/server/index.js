@@ -26,8 +26,7 @@ let projectData = {};
 
 //main route for index.html
 app.get('/', function (req, res) {
-  res.send('dist/index.html')
-  //res.sendFile('dist/index.html');
+  res.type('html').send('dist/index.html')
 });
 
 //main route for index.html
