@@ -35,3 +35,5 @@ Webpack
 Deployed at https://weather-app-frontend-9s8u.onrender.com/
 
 --Using free version, will go into sleep mode after 15 minutes if there are no requests for the application. This means it may take some time to load when the next request comes.
+
+To Do: change weather icons based on day/night
