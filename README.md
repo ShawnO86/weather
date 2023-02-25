@@ -24,7 +24,7 @@
 Technology being used : \
 Fetch \
 Async/await \
-Node v18.13.0 \
+Node \
 Express.js \
 Webpack
 
