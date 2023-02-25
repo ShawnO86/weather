@@ -5,6 +5,8 @@
 
 --Styles change based on time of day. Day = light mode, Night = dark mode
 
+--Using express.js I route the API requests to a single object stored on the Node server. Then, I fetch the JSON object from the Node server into the frontend to display the used data. 
+
 --APIs used:
 
 --geonames.org for latatude, longitude, population, state or region name, and country of destination
