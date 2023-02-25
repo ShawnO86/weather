@@ -26,6 +26,7 @@ let projectData = {};
 //main route for index.html
 app.get('/check', function (req, res) {
   res.send('200 OK');
+  console.log('check status')
 });
 
 //start server
