@@ -18,14 +18,10 @@ app.use(bodyParser.urlencoded({
 
 dotenv.config();
 
-app.use(express.static('dist'));
 let port = process.env.PORT || 3001;
 
 //api data that is used in app will populate this object
 let projectData = {};
-
-//main route for index.html
-app.get('/', (req, res) => res.type('html').send('../../dist/index.html'));
 
 //main route for index.html
 app.get('/check', function (req, res) {
