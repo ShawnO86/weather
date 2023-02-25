@@ -28,6 +28,8 @@ Node v18.13.0 \
 Express.js \
 Webpack
 
+Node - Express API deployed from https://render.com/
 
+Check API status with https://weather-app-l8kk.onrender.com/check
 
-
+Call the API from https://weather-app-l8kk.onrender.com/data/{putCityNameHere}
