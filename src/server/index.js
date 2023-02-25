@@ -75,10 +75,13 @@ const getForcastArr = async (lat, long) => {
   let weatherData = await fetch(`https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&units=I&key=${weatherBitKey}`);
   try {
     const wData = await weatherData.json();
-    //console.log("forcast data: ", wData, "Weather el 1: ", wData.data[0].weather)
+    //console.log("forcast data: ", wData) //"Weather el 1: ", wData.data[0].weather)
     //declare forcast array
     let forcast = [];
-    //Loop over weatherbit api data - to extract data app uses
+    if(wData.status_code == 429) {
+      forcast[0] = wData.status_message;
+    } else {
+       //Loop over weatherbit api data - to extract data app uses
     wData.data.forEach(element => {
       //push the 7 days of forcast to the forcast array 
       forcast.push({
@@ -94,6 +97,7 @@ const getForcastArr = async (lat, long) => {
         iconDesc: {icon: "https://www.weatherbit.io/static/img/icons/" + element.weather.icon + ".png", description: element.weather.description}
       })
     }); 
+    }
     //add forcast array to projectData
     projectData.forcast = forcast;
   } catch (e) {
@@ -108,18 +112,18 @@ const getPic = async (name, local, country) => {
   try {
     let data = await picData.json();
     //if nothing found on city call pixabay with locality
-    console.log("1st pic call: ", data)
+    //console.log("1st pic call: ", data)
     if(data.total == 0) {
       picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${local}`)
       try {
         data = await picData.json();
-        console.log("2nd pic call: ", data)
+        //console.log("2nd pic call: ", data)
             //if nothing found on locality call pixabay with country
         if(data.total == 0) {
           picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${country}`)
           try {
             data = await picData.json()
-            console.log("3rd pic call: ", data)
+            //console.log("3rd pic call: ", data)
           } catch(e) {
             console.log("Nested pic fetch error", e);
           }
