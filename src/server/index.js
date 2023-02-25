@@ -25,9 +25,7 @@ let port = process.env.PORT || 3001;
 let projectData = {};
 
 //main route for index.html
-app.get('/', function (req, res) {
-  res.type('html').send('dist/index.html')
-});
+app.get('/', (req, res) => res.type('html').send('../../dist/index.html'));
 
 //main route for index.html
 app.get('/check', function (req, res) {
