@@ -30,7 +30,7 @@ Webpack
 
 Frontend deployed with gitHub pages https://shawno86.github.io/weather/
 
-Node - Express API deployed from https://render.com/ - free version
+Frontend and Backend deployed at https://weather-app-frontend-9s8u.onrender.com/
 
 Must specify a city name @ :city
 
