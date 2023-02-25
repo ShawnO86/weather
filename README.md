@@ -31,5 +31,5 @@ Express.js \
 Webpack
 
 Deployed at https://weather-app-frontend-9s8u.onrender.com/
---Using free version, will go into sleep mode after 15 minutes if there are no requests for the application.
---This means it takes some time to load when the next request comes.
+
+--Using free version, will go into sleep mode after 15 minutes if there are no requests for the application. This means it takes some time to load when the next request comes.
