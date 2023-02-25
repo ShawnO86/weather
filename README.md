@@ -28,10 +28,4 @@ Node \
 Express.js \
 Webpack
 
-Frontend deployed with gitHub pages https://shawno86.github.io/weather/
-
-Frontend and Backend deployed at https://weather-app-frontend-9s8u.onrender.com/
-
-Must specify a city name @ :city
-
-My API endpoint https://weather-app-l8kk.onrender.com/data/:city
+Deployed at https://weather-app-frontend-9s8u.onrender.com/
