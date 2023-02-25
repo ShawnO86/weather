@@ -4,35 +4,32 @@
         background-repeat: no-repeat;
         background-size: cover;
 
-    }
-
-    #weatherOutput {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 2rem 1rem;
-        padding: 5vh 1rem 10vh 1rem;
-        margin: 0 auto;
-        background-color: rgba(187, 233, 255, 0.5);
-        min-height: 80vh;
-
-        .forcastHead {
+        h3 {
             text-align: center;
             width: 100%;
             height: fit-content;
+            margin: 0;
+            padding-top: 2rem;
         }
 
-        .weatherCard {
-            background-color: rgba(51, 51, 51, 0.80);
-            padding: clamp(0.15rem, 5vw, 1rem);
-            width: clamp(7rem, 15vw, 12rem);
-            text-align: center;
-            border-radius: 0.25rem;
-            font-size: 0.8rem;
+        #weatherOutput {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            grid-auto-rows: min-content;
+            padding: 10vh 1rem 10vh 1rem;
+            margin: 0 auto;
+            min-height: 70vh;
 
-            .icon {
-                width: clamp(3rem, 5vw, 7rem);
+            .weatherCard {
+                padding: clamp(0.15rem, 5vw, 1rem);
+                text-align: center;
+                border-radius: 0.25rem;
+                font-size: 0.9rem;
+
+                .icon {
+                    width: clamp(3rem, 5vw, 7rem);
+                }
             }
         }
     }
@@ -40,32 +37,27 @@
 
 //styles for time of day
 #outputSection.day {
-    #weatherOutput {
-        background-color: rgba(187, 233, 255, 0.65);
-
-        .forcastHead {
+    #destInfo {
+        h3 {
             color: #000;
         }
-
-        .weatherCard {
-            background-color: rgba(255, 255, 255, 0.75);
-        }
+    .weatherCard {
+        background-color: rgba(255, 255, 255, 0.75);
+        color: #000;
     }
+}
 }
 
 #outputSection.night {
-    #weatherOutput {
-        background-color: rgba(87, 133, 155, 0.65);
-
-        .forcastHead {
+    #destInfo {
+        h3 {
             color: #fff;
         }
-
-        .weatherCard {
-            background-color: rgba(51, 51, 51, 0.75);
-            color: #fff;
-        }
+    .weatherCard {
+        background-color: rgba(51, 51, 51, 0.75);
+        color: #fff;
     }
+}
 }
 
 @media screen and (min-width: 1700px) {
@@ -76,22 +68,30 @@
 
 @media screen and (max-width: 700px) {
     #outputSection {
-
+        #destInfo {
+            h3 {
+                font-size: 1rem;
+            }
         #weatherOutput {
             gap: 0.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+            padding: 3rem 0.5rem 5rem 0.5rem;
+            .weatherCard {
+                font-size: 0.8rem;
+            }
         }
     }
+}
 }
 
 @media screen and (max-width: 500px) {
     #outputSection {
+        #destInfo{
         #weatherOutput {
-            padding: 0.5rem 0.25rem 1rem 0.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+            padding: 2rem 0.25rem 2rem 0.25rem;
             gap: 0.25rem;
-
-            .forcastHead {
-                margin: 0.5rem auto;
-            }
         }
     }
+}
 }

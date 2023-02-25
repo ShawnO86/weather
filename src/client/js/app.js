@@ -8,7 +8,10 @@ async function main() {
     //output fields
     const output = document.getElementById('weatherOutput');
     const outputSection = document.getElementById('outputSection');
+    const outputHead = document.getElementById('weatherHead');
     const sourceAtt = document.getElementById('ref');
+    const destInfo = document.getElementById('destInfo');
+
 
     //check if inputs are filled in
     if (!city) {
@@ -24,9 +27,14 @@ async function main() {
             output.innerHTML = '';
             //use getData function to GET projectData from express server based on city input 
             const data = await getData(`https://weather-app-l8kk.onrender.com/data/${city}`);
+            let background = data.picture;
             //output the city or country image found on pixabay as background
-            destInfo.style.backgroundImage = `url(${data.picture})`;
-            output.innerHTML = `<h3 class='forcastHead'>Your 7-day forcast for ${data.name}, ${data.local} - ${data.country}</h3>`
+            if(outputSection.classList.contains('day')) {
+                destInfo.style.backgroundImage = `linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.65)),url(${background})`;
+            } else {
+                destInfo.style.backgroundImage = `linear-gradient(rgba(51, 51, 51, 0.95), rgba(51, 51, 51, 0.75)),url(${background})`;
+            }
+            outputHead.innerText = `Your 7-day forcast for ${data.name}, ${data.local} - ${data.country}`
             //loop through forcast from express server's projectData object          
             data.forcast.forEach(element => {
                 //output weather - each weatherCard div is a different day in 7-day forcast
