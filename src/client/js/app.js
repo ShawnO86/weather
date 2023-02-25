@@ -27,9 +27,9 @@ async function main() {
             output.innerHTML = '';
             //use getData function to GET projectData from express server based on city input 
             //for development
-            const data = await getData(`http://localhost:3001/data/${city}`);
+            //const data = await getData(`http://localhost:3001/data/${city}`);
             //for production
-            //const data = await getData(`https://weather-app-l8kk.onrender.com/data/${city}`);
+            const data = await getData(`https://weather-app-l8kk.onrender.com/data/${city}`);
             let background = data.picture;
             //output the city or country image found on pixabay as background
             if (outputSection.classList.contains('day')) {
