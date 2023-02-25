@@ -3,6 +3,8 @@
 
 --Will recieve weather data for user specified location with a 7-day forcast and image of the location as the background. 
 
+--Styles change based on time of day. Day = light mode, Night = dark mode
+
 --APIs used:
 
 --geonames.org for latatude, longitude, population, state or region name, and country of destination
