@@ -23,7 +23,7 @@ async function main() {
             //reset output html to blank
             output.innerHTML = '';
             //use getData function to GET projectData from express server based on city input 
-            const data = await getData(`/data/${city}`);
+            const data = await getData(`https://weather-app-l8kk.onrender.com/data/${city}`);
             //output the city or country image found on pixabay as background
             destInfo.style.backgroundImage = `url(${data.picture})`;
             output.innerHTML = `<h3 class='forcastHead'>Your 7-day forcast for ${data.name}, ${data.local} - ${data.country}</h3>`
