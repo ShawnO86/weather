@@ -30,4 +30,6 @@ Webpack
 
 Node - Express API deployed from https://render.com/
 
-My API endpoint https://weather-app-l8kk.onrender.com/data/specifyCityHere
+Must specify a city name @ :city
+
+My API endpoint https://weather-app-l8kk.onrender.com/data/:city
