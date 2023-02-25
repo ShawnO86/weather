@@ -60,11 +60,11 @@ const getGeoData = async (req, res) => {
       lat: data.geonames[0].lat,
       country: data.geonames[0].countryName,
       local: data.geonames[0].adminName1,
-      name: data.geonames[0].toponymName
+      name: data.geonames[0].name
     };
     //call other APIs that require geonames data
     await getForcastArr(projectData.lat, projectData.long);
-    await getPic(projectData.local, projectData.country);
+    await getPic(projectData.name, projectData.local, projectData.country);
   } catch (e) {
     console.log(e);
   }
@@ -102,18 +102,32 @@ const getForcastArr = async (lat, long) => {
 }
 
 //uses geonames data to get the city and country name
-const getPic = async (local, country) => {
-  //call pixabay with city + country 
-  let picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${local +"+"+ country}`);
+const getPic = async (name, local, country) => {
+  //call pixabay with city
+  let picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${name}`);
   try {
     let data = await picData.json();
-    //if nothing found on city call pixabay with just country
+    //if nothing found on city call pixabay with locality
+    console.log("1st pic call: ", data)
     if(data.total == 0) {
-      picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${local='' + country}`)
+      picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${local}`)
       try {
         data = await picData.json();
+        console.log("2nd pic call: ", data)
+            //if nothing found on locality call pixabay with country
+        if(data.total == 0) {
+          picData = await fetch(`https://pixabay.com/api/?key=${pixaBayKey}&image_type=photo&category=places&per_page=3&q=${country}`)
+          try {
+            data = await picData.json()
+            console.log("3rd pic call: ", data)
+          } catch(e) {
+            console.log("Nested pic fetch error", e);
+          }
+        } else {
+       // console.log("2nd pic call: ", data)
         //add country picture URL to projectData object
         projectData.picture = data.hits[0].largeImageURL;
+        }
       } catch (e) {
         console.log("Nested pic fetch error", e);
       }
