@@ -9,7 +9,7 @@ module.exports = {
     devtool: 'source-map',
     output: {
         //  clean-webpack-plugin will remove files inside the directory below
-        path: path.resolve(process.cwd(), 'dist')
+        path: path.resolve(process.cwd(), 'docs')
     },
     module: {
         rules: [
