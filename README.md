@@ -28,6 +28,8 @@ Node v18.13.0 \
 Express.js \
 Webpack
 
+Frontend deployed with gitHub pages https://shawno86.github.io/weather/
+
 Node - Express API deployed from https://render.com/
 
 Must specify a city name @ :city
