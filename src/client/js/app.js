@@ -38,7 +38,7 @@ async function main() {
                 destInfo.style.backgroundImage = `linear-gradient(rgba(51, 51, 51, 0.95), rgba(51, 51, 51, 0.75)),url(${background})`;
             }
             outputHead.innerText = `Your 7-day forcast for ${data.name}, ${data.local} - ${data.country}`
-            if (data.forcast.length = 1) {
+            if (data.forcast.length <= 1) {
                 output.innerText = "Status message: " + data.forcast[0];
             } else {
                 //loop through forcast from express server's projectData object          
